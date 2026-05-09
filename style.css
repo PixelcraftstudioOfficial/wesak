@@ -19,18 +19,49 @@ a { text-decoration: none; }
 .enter-btn { padding: 15px 30px; font-size: 1.2rem; background: transparent; color: #fff; border: 2px solid #ffd700; border-radius: 30px; cursor: pointer; transition: 0.3s; box-shadow: 0 0 15px rgba(255,215,0,0.5); display: inline-block; }
 .enter-btn:hover { background: #ffd700; color: #000; box-shadow: 0 0 25px rgba(255,215,0,0.8); }
 
-/* Thorana */
+/* =========================================
+   --- Thorana (Dynamic LED Animation) ---
+========================================= */
 .thorana-section { padding: 50px 20px; background-color: #020202; text-align: center; min-height: 100vh; }
 .section-title { font-size: 3rem; color: #ffd700; margin-bottom: 10px; text-shadow: 0 0 15px rgba(255,215,0,0.6); }
-.presented-by { font-size: 1.5rem; color: #fff; margin-bottom: 5px; letter-spacing: 2px; text-transform: uppercase; }
+.presented-by { font-size: 1.5rem; color: #fff; margin-bottom: 5px; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
 .developer-name { font-size: 0.9rem; color: #aaa; margin-bottom: 40px; }
 .real-thorana-container { position: relative; max-width: 1200px; margin: 0 auto; width: 100%; }
-.thorana-background-img { width: 100%; display: block; border-radius: 20px; animation: thoranaLights 1.5s infinite alternate; }
-@keyframes thoranaLights { 0% { filter: hue-rotate(0deg) brightness(1); } 50% { filter: hue-rotate(-10deg) brightness(1.1); } 100% { filter: hue-rotate(0deg) brightness(1); } }
-.interactive-panel { position: absolute; z-index: 10; cursor: pointer; overflow: hidden; border: 4px dotted #ffcc00; border-radius: 10px; transition: 0.3s; animation: borderBlink 1s infinite alternate; }
-.interactive-panel:hover { transform: scale(1.08); box-shadow: 0 0 40px #fff !important; z-index: 20; border-color: #fff !important; }
-.interactive-panel img { width: 100%; height: 100%; object-fit: cover; }
-@keyframes borderBlink { 0% { border-color: #ff0000; } 33% { border-color: #00ff00; } 66% { border-color: #0000ff; } 100% { border-color: #ffff00; } }
+
+.real-thorana-container::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); mix-blend-mode: color-dodge; animation: lightSweep 4s infinite linear; pointer-events: none; border-radius: 20px; z-index: 5; }
+@keyframes lightSweep { 0% { transform: translateX(-150%) skewX(-20deg); } 100% { transform: translateX(150%) skewX(-20deg); } }
+
+.thorana-background-img { width: 100%; display: block; border-radius: 20px; animation: realThoranaLights 15s infinite; }
+@keyframes realThoranaLights {
+    0%, 4%, 8% { filter: hue-rotate(0deg) brightness(1.6) saturate(2.5); }
+    2%, 6%, 10% { filter: hue-rotate(180deg) brightness(0.6) saturate(1); }
+    12% { filter: hue-rotate(45deg) brightness(1.2); }
+    18% { filter: hue-rotate(135deg) brightness(1.4); }
+    24% { filter: hue-rotate(225deg) brightness(1.2); }
+    30% { filter: hue-rotate(315deg) brightness(1.4); }
+    35%, 39%, 43%, 47% { filter: hue-rotate(90deg) contrast(1.5) brightness(1.4); }
+    37%, 41%, 45%, 49% { filter: hue-rotate(270deg) contrast(1.2) brightness(0.7); }
+    55% { filter: hue-rotate(0deg) brightness(1) sepia(0.5); }
+    65% { filter: hue-rotate(-30deg) brightness(1.8) saturate(2) drop-shadow(0 0 20px #ffaa00); }
+    75% { filter: hue-rotate(0deg) brightness(1) sepia(0.5); }
+    80% { filter: hue-rotate(0deg) brightness(1.5) saturate(2); }
+    85% { filter: hue-rotate(120deg) brightness(1.5) saturate(2); }
+    90% { filter: hue-rotate(240deg) brightness(1.5) saturate(2); }
+    95% { filter: hue-rotate(360deg) brightness(1.5) saturate(2); }
+    100% { filter: hue-rotate(0deg) brightness(1.6) saturate(2.5); }
+}
+
+.interactive-panel { position: absolute; z-index: 10; cursor: pointer; overflow: visible; border: 3px solid #ffcc00; border-radius: 10px; transition: 0.3s; animation: runningBorders 0.5s infinite linear; }
+.interactive-panel:hover { transform: scale(1.08); box-shadow: 0 0 50px #fff !important; z-index: 20; border-color: #fff !important; animation: none; }
+.interactive-panel img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+
+@keyframes runningBorders {
+    0% { box-shadow: 0 -6px 15px #ff0000, 0 6px 15px #00ff00, 6px 0 15px #0000ff, -6px 0 15px #ffff00; border-color: #ff0000; }
+    25% { box-shadow: 6px 0 15px #ff0000, -6px 0 15px #00ff00, 0 6px 15px #0000ff, 0 -6px 15px #ffff00; border-color: #ffff00; }
+    50% { box-shadow: 0 6px 15px #ff0000, 0 -6px 15px #00ff00, -6px 0 15px #0000ff, 6px 0 15px #ffff00; border-color: #00ff00; }
+    75% { box-shadow: -6px 0 15px #ff0000, 6px 0 15px #00ff00, 0 -6px 15px #0000ff, 0 6px 15px #ffff00; border-color: #0000ff; }
+    100% { box-shadow: 0 -6px 15px #ff0000, 0 6px 15px #00ff00, 6px 0 15px #0000ff, -6px 0 15px #ffff00; border-color: #ff0000; }
+}
 
 .pos-center { top: 22%; left: 38%; width: 24%; height: 32%; border-radius: 10px 10px 50px 50px; }
 .pos-1 { top: 35%; left: 15%; width: 17%; height: 20%; } 
@@ -96,51 +127,9 @@ a { text-decoration: none; }
 /* =========================================
    --- Wishboard (E-Card) Specific Styles ---
 ========================================= */
-.wishboard-page-body {
-    background-color: #050505;
-    min-height: 100vh;
-    padding-top: 100px;
-    text-align: center;
-}
-
-.wishboard-section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.card-generator-container {
-    background: rgba(20, 20, 20, 0.8);
-    border: 2px solid #ffd700;
-    border-radius: 15px;
-    padding: 40px;
-    margin-top: 30px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-}
-
-#userNameInput {
-    width: 80%;
-    padding: 15px;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    border: 1px solid #555;
-    background: #000;
-    color: #fff;
-    margin-bottom: 20px;
-    outline: none;
-    text-align: center;
-}
-
-#userNameInput:focus {
-    border-color: #ffd700;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-}
-
-#ecardCanvas {
-    width: 100%;
-    max-width: 500px; /* වෙබ් එකේ පේන සයිස් එක පොඩියි, ඒත් ඩවුන්ලෝඩ් වෙන්නේ 1080x1080 HD සයිස් එකෙන් */
-    height: auto;
-    border: 4px solid #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-}
+.wishboard-page-body { background-color: #050505; min-height: 100vh; padding-top: 100px; text-align: center; }
+.wishboard-section { max-width: 800px; margin: 0 auto; padding: 20px; }
+.card-generator-container { background: rgba(20, 20, 20, 0.8); border: 2px solid #ffd700; border-radius: 15px; padding: 40px; margin-top: 30px; box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+#userNameInput { width: 80%; padding: 15px; font-size: 1.2rem; border-radius: 10px; border: 1px solid #555; background: #000; color: #fff; margin-bottom: 20px; outline: none; text-align: center; }
+#userNameInput:focus { border-color: #ffd700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+#ecardCanvas { width: 100%; max-width: 500px; height: auto; border: 4px solid #fff; border-radius: 10px; box-shadow: 0 0 30px rgba(255, 255, 255, 0.2); }
