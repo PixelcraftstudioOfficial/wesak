@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ඩිජිටල් තොරණ - Pixel Craft Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="assets/bg-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="musicToggleBtn" onclick="toggleMusic()">🎵 Play Music</button>
+
+    <section class="thorana-section" id="thorana-section">
+        
+        <div style="text-align: left; max-width: 1200px; margin: 0 auto 20px auto; padding: 0 20px;">
+            <a href="index.html" class="enter-btn" style="font-size: 1rem; padding: 10px 20px; border-color: #aaaaaa; color: #aaaaaa; text-decoration: none;">🔙 මුල් පිටුවට</a>
+        </div>
+
+        <h2 class="section-title">ස්වර්ණ හංස ජාතකය</h2>
+        <h3 class="presented-by">ඉදිරිපත් කිරීම - Pixel Craft studio</h3>
+        <p class="developer-name">By Lakmal Madhushan</p>
+        
+        <div class="real-thorana-container">
+            
+            <img src="assets/thorana-bg.png" class="thorana-background-img" alt="Thorana Structure">
+
+            <div class="interactive-panel pos-1" onclick="openModal('assets/scene1.jpg', '1. පෙර භවයේ පවුල දැකීම: බෝසත් ස්වර්ණ හංසයා තමාගේ පෙර භවයේ බිරිඳ සහ දරුවන් ඉතා දුප්පත්ව දුක් විඳින ආකාරය දැක ඔවුන්ට අනුකම්පා කළේය.')">
+                <img src="assets/scene1.png" alt="දර්ශනය 1">
+            </div>
+
+            <div class="interactive-panel pos-2" onclick="openModal('assets/scene2.jpg', '2. රන් පිහාටුවක් දීම: ඔවුන්ට උපකාරයක් ලෙස ස්වර්ණ හංසයා දිනකට එක් රන් පිහාටුව බැගින් ලබා දීමට තීරණය කළ අතර ඉන් පවුල යම් තරමක සැනසිල්ලක් ලැබීය.')">
+                <img src="assets/scene2.png" alt="දර්ශනය 2">
+            </div>
+
+            <div class="interactive-panel pos-center" onclick="openModal('assets/buddha.jpg', 'නමාමි සම්බුද්ධං: කෑදරකමේ ආදීනව පෙන්වා දෙන ස්වර්ණ හංස ජාතක කතාව අළලා නිර්මාණය කළ අන්තර්ජාල වෙසක් තොරණ.')">
+                <img src="assets/buddha.png" alt="බුදුරජාණන් වහන්සේ">
+            </div>
+
+            <div class="interactive-panel pos-3" onclick="openModal('assets/scene3.jpg', '3. බැමිණියගේ කෑදරකම: රන් පිහාටු විකිණීමෙන් පවුල පොහොසත් වූවත්, කෑදරකමින් අන්ධ වූ බැමිණිය දිනකට ලැබෙන එක් පිහාටුවෙන් සෑහීමකට පත් නොවූවාය.')">
+                <img src="assets/scene3.png" alt="දර්ශනය 3">
+            </div>
+
+            <div class="interactive-panel pos-4" onclick="openModal('assets/scene4.jpg', '4. හංසයා අල්ලා ගැනීම: හංසයාගේ සියලුම පිහාටු එකවර ගැලවීමේ පාපතර චේතනාවෙන් බැමිණිය හංසයාව බලහත්කාරයෙන් අල්ලා ගත්තාය.')">
+                <img src="assets/scene4.png" alt="දර්ශනය 4">
+            </div>
+
+            <div class="interactive-panel pos-5" onclick="openModal('assets/scene5.jpg', '5. පිහාටු සුදු වීම සහ පියඹා යාම: බලහත්කාරයෙන් ගැලවූ පිහාටු වල රන්වන් පැහැය නැතිවී ඒවා සුදු පැහැ විය. කෑදරකමේ ආදීනව පෙන්වා දුන් හංසයා නැවත කිසිදිනෙක නොඑන්නට පියඹා ගියේය.')">
+                <img src="assets/scene5.png" alt="දර්ශනය 5">
+            </div>
+
+        </div>
+    </section>
+
+    <div id="storyModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-content-wrapper">
+            <img class="modal-img" id="modalImg">
+            <p id="modalText" class="modal-caption"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

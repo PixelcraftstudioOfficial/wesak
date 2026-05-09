@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ඩිජිටල් වෙසක් කලාපය - Pixel Craft Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="assets/bg-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="musicToggleBtn" onclick="toggleMusic()">🎵 Play Music</button>
+
+    <section class="hero-section">
+        <video autoplay muted loop playsinline class="bg-video desktop-video">
+            <source src="assets/desktop-video.mp4" type="video/mp4">
+        </video>
+        
+        <video autoplay muted loop playsinline class="bg-video mobile-video">
+            <source src="assets/mobile-video.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-overlay"></div>
+
+        <div class="hero-content">
+            <h1>සුභ වෙසක් මංගල්‍යයක් වේවා!</h1>
+            <p>බෞද්ධාලෝකයෙන් ඒකාලෝක වූ අන්තර්ජාල වෙසක් කලාපය</p>
+            
+            <div class="nav-buttons-container">
+                <a href="thorana.html" class="enter-btn">ඩිජිටල් තොරණ</a>
+                <a href="pahan-pujava.html" class="enter-btn">සජීවී පහන් පූජාව</a>
+                <a href="dansala.html" class="enter-btn">අන්තර්ජාල දන්සල</a>
+                <a href="wishboard.html" class="enter-btn">වෙසක් සුභ පැතුම් (E-Card)</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

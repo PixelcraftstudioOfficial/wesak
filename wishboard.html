@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>සුභ පැතුම් පුවරුව - Pixel Craft Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="wishboard-page-body">
+
+    <audio id="bgMusic" loop>
+        <source src="assets/bg-music.mp3" type="audio/mpeg">
+    </audio>
+    <button id="musicToggleBtn" onclick="toggleMusic()">🎵 Play Music</button>
+
+    <div style="text-align: left; position: absolute; top: 20px; left: 20px; z-index: 100;">
+        <a href="index.html" class="enter-btn" style="font-size: 1rem; padding: 10px 20px; border-color: #aaaaaa; color: #aaaaaa;">🔙 මුල් පිටුවට</a>
+    </div>
+
+    <section class="wishboard-section">
+        <h2 class="section-title">ඩිජිටල් වෙසක් සුභ පැතුම්</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 20px;">ඔබේ නම ඇතුලත් කර අලංකාර වෙසක් සුභ පැතුම් පතක් නිර්මාණය කරගන්න.</p>
+
+        <div class="card-generator-container">
+            <input type="text" id="userNameInput" placeholder="ඔබේ නම මෙතනින් ටයිප් කරන්න..." maxlength="25">
+            <br>
+            <button class="enter-btn" onclick="generateCard()">🎨 පින්තූරය නිර්මාණය කරන්න</button>
+        </div>
+
+        <div id="canvas-container" style="display: none; margin-top: 40px;">
+            <canvas id="ecardCanvas" width="1080" height="1080"></canvas>
+            <br><br>
+            <a id="downloadBtn" class="download-btn" style="font-size: 1.2rem; padding: 15px 40px;">⬇️ පින්තූරය Download කරගන්න</a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="ecard.js"></script>
+</body>
+</html>

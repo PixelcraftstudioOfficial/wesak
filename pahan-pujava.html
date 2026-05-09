@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>සජීවී පහන් පූජාව</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+</head>
+<body class="pahan-page-body">
+    <audio id="bgMusic" loop><source src="assets/bg-music.mp3" type="audio/mpeg"></audio>
+    <button id="musicToggleBtn" onclick="toggleMusic()">🎵 Play Music</button>
+
+    <div style="text-align: left; position: absolute; top: 20px; left: 20px; z-index: 100;">
+        <a href="index.html" class="enter-btn" style="font-size: 1rem; padding: 10px 20px; border-color: #aaaaaa; color: #aaaaaa;">🔙 මුල් පිටුවට</a>
+    </div>
+
+    <section class="pahan-section">
+        <img src="assets/bodhi-bg.png" class="bodhi-background" alt="Bodhi Tree">
+        <div class="video-overlay"></div>
+
+        <div class="pahan-content">
+            <h2 class="section-title">සජීවී පහන් පූජාව</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">මෙතෙක් පූජා කර ඇති පහන් ගණන:</p>
+            
+            <div class="counter-box">
+                <span id="pahanCount">0</span>
+            </div>
+            <br>
+            <button class="enter-btn light-lamp-btn" onclick="lightLamp()">🪔 පහනක් පූජා කරන්න</button>
+        </div>
+        <div id="floating-lamps-container"></div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="pahan.js"></script>
+</body>
+</html>
